@@ -4,3 +4,4 @@ Price of charger: $20
 Price of powerbank: $50
 price of milk   : $10
 The total amount would be $110.
+The total amount would be $110.
