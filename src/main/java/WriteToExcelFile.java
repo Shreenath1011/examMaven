@@ -13,7 +13,6 @@ public class WriteToExcelFile {
         try{
             File file = new File("C:\\Users\\User\\IntelliJWorkspace\\examMaven\\src\\main\\resources\\students.xlsx");
             FileInputStream fileInputStream = new FileInputStream(file);
-            FileOutputStream fileOutputStream = new FileOutputStream(file);
             XSSFWorkbook workbook = new XSSFWorkbook(fileInputStream);
 
             int num = workbook.getNumberOfSheets();
@@ -39,7 +38,7 @@ public class WriteToExcelFile {
                 System.out.println();
             }
             Student[] student = new Student[7];
-            for( int i=1 ; i<= sheet.getLastRowNum(); i++){
+            for( int i=1 ; i<= 5; i++){
                 Row row = sheet.getRow(i);
                 int id=0, score1=0, score2=0, score3=0;
                 String name="";
@@ -69,8 +68,10 @@ public class WriteToExcelFile {
                 student[i] = tempStu;
 
             }
-            // display using custom display method
-            display(student, sheet.getLastRowNum() );
+            // display
+            for( int i=0 ; i<5; i++){
+                student[i].toString();
+            }
 
             Student student1 = new Student(1006, "Shree", 90 , 60, 70);
             Student student2 = new Student(1007, "Shreenath", 95 , 66, 78);
@@ -121,6 +122,7 @@ public class WriteToExcelFile {
                 }
 
             }
+            FileOutputStream fileOutputStream = new FileOutputStream(file);
             workbook.write(fileOutputStream);
             fileOutputStream.close();
             display(student , sheet.getLastRowNum());
